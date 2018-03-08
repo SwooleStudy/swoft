@@ -7,6 +7,7 @@ use Swoft\Http\Server\Bean\Annotation\RequestMapping;
 use Swoft\View\Bean\Annotation\View;
 use Swoft\Contract\Arrayable;
 use Swoft\Http\Server\Exception\BadRequestException;
+use Swoft\Http\Message\Server\Request;
 use Swoft\Http\Message\Server\Response;
 
 /**
@@ -55,7 +56,22 @@ class IndexController
     }
 
     /**
+     * @RequestMapping("/json")
+     * @param Request  $request
+     * @param Response  $response
+     * @return Response
+     */
+    public function json(Request $request,Response $response){
+        $data=[
+            "status"=>1,
+            "message"=>"test response json success!"
+        ];
+        return $response->json($data);
+    }
+
+    /**
      * show view by view function
+     * @RequestMapping("/templateView")
      */
     public function templateView(): Response
     {
