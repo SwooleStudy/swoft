@@ -4,16 +4,56 @@ namespace App\Controllers;
 
 use App\Models\Entity\Count;
 use App\Models\Entity\User;
+use App\Models\Entity\Users;
 use Swoft\Http\Server\Bean\Annotation\Controller;
 use Swoft\Db\EntityManager;
 use Swoft\Db\QueryBuilder;
 use Swoft\Db\Types;
+use Swoft\Http\Server\Bean\Annotation\RequestMapping;
+use Swoft\Http\Server\Bean\Annotation\RequestMethod;
 
 /**
  * @Controller()
  */
 class OrmController
 {
+    /**
+     * 定义一个route,支持get和post方式，处理uri=/demo2/index
+     *
+     * @RequestMapping(route="/orm/create", method={RequestMethod::GET})
+     *
+     * @return mixed
+     */
+    public function create_test(){
+        $user = new Users();
+        $user->setName('xiongchao');
+        $user->setEmail('805833031@qq.com');
+        $user->setPassword('xiongchao');
+        $user->setCreatedAt(date('Y-m-d H:i:s'));
+        $user->setUpdatedAt(date('Y-m-d H:i:s'));
+        $deferUser = $user->save();
+       //var_export($deferUser);
+        $userResult  = $deferUser->getResult();
+        return $userResult;
+
+    }
+
+    /**
+     *
+     * @RequestMapping(route="/orm/search", method={RequestMethod::GET})
+     *
+     * @return mixed
+     */
+    public function search(){
+
+        $sql = "select * from users";
+        $em = EntityManager::create();
+        $result = $em->createQuery($sql)->execute()->getResult();
+        $em->close();
+        return [$result];
+    }
+
+
     public function arSave()
     {
         $user = new User();

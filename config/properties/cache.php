@@ -6,6 +6,7 @@ return [
             '127.0.0.1:6379',
             '127.0.0.1:6379',
         ],
+        'auth'        =>'',
         'minActive'   => 8,
         'maxActive'   => 8,
         'maxWait'     => 8,
