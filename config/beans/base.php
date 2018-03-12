@@ -7,21 +7,30 @@ return [
             \Swoft\Session\Middleware\SessionMiddleware::class,
         ]
     ],
-    'httpRouter'       => [
-        'ignoreLastSep'  => false,
+    'httpRouter' => [
+        'ignoreLastSep' => false,
         'tmpCacheNumber' => 1000,
-        'matchAll'       => '',
+        'matchAll' => '',
     ],
-    'requestParser'    => [
+    'requestParser' => [
         'parsers' => [
 
         ],
     ],
-    'view'             => [
+    'view' => [
         'viewsPath' => '@resources/views/',
     ],
-    'cache'            => [
+    'cache' => [
         'class' => \Swoft\Cache\Cache::class,
         'driver' => 'redis',
+    ],
+    'TestBean' => [
+        'class' => \App\BeanTest\TestBean::class,
+        'name' => 'bigboom',
+        'age' => 12,
+        [ // 构造函数参数
+            'arg1',
+            'TestBean'
+        ]
     ],
 ];
