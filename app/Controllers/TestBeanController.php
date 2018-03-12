@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use Swoft\Http\Server\Bean\Annotation\Controller;
 
 /**
  * @Controller(prefix="/bean")
