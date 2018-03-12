@@ -1,4 +1,7 @@
 <?php
+
+date_default_timezone_set("PRC");
+
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 require_once dirname(__DIR__) . '/config/define.php';
 
