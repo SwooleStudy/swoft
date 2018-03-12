@@ -21,6 +21,7 @@ return [
         'viewsPath' => '@resources/views/',
     ],
     'cache'            => [
+        'class' => \Swoft\Cache\Cache::class,
         'driver' => 'redis',
     ],
 ];
