@@ -11,6 +11,7 @@ use App\Middlewares\ActionTestMiddleware;
 use App\Middlewares\SubMiddleware;
 use App\Middlewares\ControlerSubMiddleware;
 use App\Middlewares\ControlerTestMiddleware;
+use App\Middlewares\RoleMiddleware;
 
 
 /**
@@ -22,6 +23,18 @@ use App\Middlewares\ControlerTestMiddleware;
  */
 class MiddlewareController
 {
+
+    /**
+     * @RequestMapping()
+     * @Middlewares({
+     *     @Middleware(RoleMiddleware::class)
+     * })
+     */
+    public function role(): array
+    {
+        return ['role'];
+    }
+
     /**
      * @RequestMapping()
      * @Middlewares({

@@ -33,4 +33,7 @@ return [
             'TestBean'
         ]
     ],
+    'TestBean2' => [
+        'class' => \App\BeanTest\TestBean2::class,
+    ],
 ];

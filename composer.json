@@ -24,7 +24,7 @@
         "swoft/redis": "^1.0",
         "swoft/console": "^1.0",
         "swoft/devtool": "^1.0",
-        "swoft/session": "^1.0",
+        "swoft/session": "^1.0.2",
         "swoft/i18n": "^1.0",
         "swoft/process": "^1.0",
         "swoft/memory": "^1.0",
